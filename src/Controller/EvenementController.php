@@ -52,7 +52,7 @@ final class EvenementController extends AbstractController
         $formulaire->handleRequest($request);
 
         if ($formulaire->isSubmitted()){
-            $produit=$formulaire->getData();
+            $evenement=$formulaire->getData();
             $produit->setdateCreation(new \DateTime('now'));
             $produit->setIsActive(true);
 
@@ -60,7 +60,7 @@ final class EvenementController extends AbstractController
             $this->entityManager->flush();
         }
 
-        return $this->render('produit/create.html.twig', [
+        return $this->render('evenement/create.html.twig', [
             'form' =>   $formulaire,
             'produits' => []
         ]);

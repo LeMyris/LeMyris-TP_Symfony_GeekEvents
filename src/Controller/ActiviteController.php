@@ -45,7 +45,7 @@ final class ActiviteController extends AbstractController
             $this->entityManager->flush();
         }
 
-        return $this->render('produit/create.html.twig', [
+        return $this->render('activite/create.html.twig', [
             'form' =>   $formulaire,
         ]);
     }

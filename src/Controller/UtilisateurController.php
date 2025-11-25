@@ -40,13 +40,13 @@ final class UtilisateurController extends AbstractController
         $formulaire->handleRequest($request);
 
         if ($formulaire->isSubmitted()) {
-            $activite = $formulaire->getData();
+            $utilisateur = $formulaire->getData();
 
-            $this->entityManager->persist($activite);
+            $this->entityManager->persist($utilisateur);
             $this->entityManager->flush();
         }
 
-        return $this->render('produit/create.html.twig', [
+        return $this->render('utilisateur/create.html.twig', [
             'form' => $formulaire,
         ]);
     }
