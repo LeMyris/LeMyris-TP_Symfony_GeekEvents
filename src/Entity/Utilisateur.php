@@ -14,22 +14,39 @@ class Utilisateur
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $nom = null;
+    private ?string $username = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $password = null;
+    
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getUsername(): ?string
     {
-        return $this->nom;
+        return $this->username;
     }
 
-    public function setNom(string $nom): static
+    public function setUsername(string $username): static
     {
-        $this->nom = $nom;
+        $this->username = $username;
 
         return $this;
     }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): static
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
 }

@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\ParticipantRepository;
+use Couchbase\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ParticipantRepository::class)]
-class Participant
+class Participant extends Utilisateur
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
