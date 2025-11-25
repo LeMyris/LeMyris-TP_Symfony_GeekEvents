@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Activite;
 use App\Entity\Utilisateur;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
