@@ -6,7 +6,6 @@ use App\Entity\Activite;
 use App\Entity\Evenement;
 use App\Entity\Intervenant;
 use App\Entity\Organisateur;
-use App\Entity\Participant;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

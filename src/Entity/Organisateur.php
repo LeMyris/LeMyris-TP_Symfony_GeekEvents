@@ -10,10 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: OrganisateurRepository::class)]
 class Organisateur extends Utilisateur
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
 
     /**
      * @var Collection<int, Evenement>
@@ -32,10 +28,6 @@ class Organisateur extends Utilisateur
         $this->evenements = new ArrayCollection();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     /**
      * @return Collection<int, Evenement>
