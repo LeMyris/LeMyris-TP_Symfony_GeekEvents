@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Utilisateur index{% endblock %}
+{% block title %}Admin index{% endblock %}
 
 {% block body %}
-    <h1>Utilisateur index</h1>
+    <h1>Admin index</h1>
 
     <table class="table">
         <thead>
@@ -15,14 +15,14 @@
             </tr>
         </thead>
         <tbody>
-        {% for utilisateur in utilisateurs %}
+        {% for admin in admins %}
             <tr>
-                <td>{{ utilisateur.id }}</td>
-                <td>{{ utilisateur.username }}</td>
-                <td>{{ utilisateur.password }}</td>
+                <td>{{ admin.id }}</td>
+                <td>{{ admin.username }}</td>
+                <td>{{ admin.password }}</td>
                 <td>
-                    <a href="{{ path('app_utilisateur_show', {'id': utilisateur.id}) }}">show</a>
-                    <a href="{{ path('app_utilisateur_edit', {'id': utilisateur.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_show', {'id': admin.id}) }}">show</a>
+                    <a href="{{ path('app_admin_edit', {'id': admin.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_utilisateur_new') }}">Create new</a>
+    <a href="{{ path('app_admin_new') }}">Create new</a>
 {% endblock %}

@@ -1,20 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ParticipantController!{% endblock %}
+{% block title %}Participant index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Participant index</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for participant in participants %}
+            <tr>
+                <td>{{ participant.id }}</td>
+                <td>{{ participant.username }}</td>
+                <td>{{ participant.password }}</td>
+                <td>{{ participant.nom }}</td>
+                <td>
+                    <a href="{{ path('app_participant_show', {'id': participant.id}) }}">show</a>
+                    <a href="{{ path('app_participant_edit', {'id': participant.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/mnash.cda/Documents/TP_Symfony_GeekEvents/src/Controller/ParticipantController.php</code></li>
-        <li>Your template at <code>C:/Users/mnash.cda/Documents/TP_Symfony_GeekEvents/templates/participant/index.html.twig</code></li>
-    </ul>
-</div>
+    <a href="{{ path('app_participant_new') }}">Create new</a>
 {% endblock %}

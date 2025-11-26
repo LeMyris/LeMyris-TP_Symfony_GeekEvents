@@ -6,6 +6,14 @@ use App\Repository\UtilisateurRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
+#[ORM\InheritanceType('SINGLE_TABLE')]
+#[ORM\DiscriminatorColumn(name: 'discr', type: 'string')]
+#[ORM\DiscriminatorMap(value: [
+    'Intervenant' => Intervenant::class,
+    'Participant' => Participant::class,
+    'Organisateur' => Organisateur::class,
+    'Admin' => Admin::class,
+])]
 class Utilisateur
 {
     #[ORM\Id]
@@ -18,7 +26,7 @@ class Utilisateur
 
     #[ORM\Column(length: 255)]
     private ?string $password = null;
-    
+
 
     public function getId(): ?int
     {
