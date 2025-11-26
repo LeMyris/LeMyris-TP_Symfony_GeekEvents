@@ -45,7 +45,6 @@ final class EvenementController extends AbstractController
             ->add('activite', EntityType::class, ["class" => Activite::class])
             ->add('Intervenant', EntityType::class, ["class" => Intervenant::class, "multiple" => true,"expanded" => true,])
             ->add('Organisateur', EntityType::class, ["class" => Organisateur::class])
-            ->add('Participant', EntityType::class, ["class" => Participant::class])
             ->add('submit', SubmitType::class);
 
         $formulaire=$formBuilder->getForm();
@@ -53,10 +52,8 @@ final class EvenementController extends AbstractController
 
         if ($formulaire->isSubmitted()){
             $evenement=$formulaire->getData();
-            $produit->setdateCreation(new \DateTime('now'));
-            $produit->setIsActive(true);
 
-            $this->entityManager->persist($produit);
+            $this->entityManager->persist($evenement);
             $this->entityManager->flush();
         }
 
