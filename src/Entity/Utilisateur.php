@@ -27,6 +27,9 @@ class Utilisateur
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
+    #[ORM\OneToOne(mappedBy: 'Utilisateur', cascade: ['persist', 'remove'])]
+    private ?Profil $profil = null;
+
 
     public function getId(): ?int
     {
@@ -53,6 +56,23 @@ class Utilisateur
     public function setPassword(string $password): static
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    public function getProfil(): ?Profil
+    {
+        return $this->profil;
+    }
+
+    public function setProfil(Profil $profil): static
+    {
+        // set the owning side of the relation if necessary
+        if ($profil->getUtilisateur() !== $this) {
+            $profil->setUtilisateur($this);
+        }
+
+        $this->profil = $profil;
 
         return $this;
     }
